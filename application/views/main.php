@@ -3,27 +3,8 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <!-- BEGIN HEAD -->
-<head>
-	<meta charset="utf-8" />
-	<title>Metronic | Extra - Lock Screen</title>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
-	<!-- BEGIN GLOBAL MANDATORY STYLES -->
-	<link href="assets/metronics/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/metronics/plugins/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/metronics/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/metronics/css/style-metro.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/metronics/css/style.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/metronics/css/style-responsive.css" rel="stylesheet" type="text/css"/>
-	<link href="assets/metronics/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
-	<link href="assets/metronics/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-	<!-- END GLOBAL MANDATORY STYLES -->
-	<!-- BEGIN PAGE LEVEL STYLES -->
-	<link href="assets/metronics/css/pages/lock.css" rel="stylesheet" type="text/css"/>
-	<!-- END PAGE LEVEL STYLES -->
-	<link rel="shortcut icon" href="favicon.ico" />
-</head>
+<?php $this->load->view('common/head');?>
+<?php $this->load->view('common/lockstyles');?>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body>
@@ -34,14 +15,14 @@
 			</a>
 		</div>
 		<div class="page-body">
-			<img class="page-lock-img" src="assets/metronics/img/profile/profile.jpg" alt="">
+			<img class="page-lock-img" src="assets/metronics/img/profile/belanjaatklogo400x97_undertext.png" alt="">
 			<div class="page-lock-info">
-				<h1>Bob Nilson</h1>
-				<span>bob@keenthemes.com</span>
+				<h1>Login Page</h1>
+				<span>belanjaatk.co.id</span>
 				<span><em>Locked</em></span>
 				<form class="form-search" action="index.html">
 					<div class="input-append">
-						<input type="text" class="m-wrap" placeholder="Password">
+						<input type="text" class="m-wrap" placeholder="Abaikan">
 						<button type="submit" class="btn blue icn-only"><i class="m-icon-swapright m-icon-white"></i></button>
 					</div>
 					<div class="relogin">
@@ -52,9 +33,7 @@
 				</form>
 			</div>
 		</div>
-		<div class="page-footer">
-			2013 &copy; Metronic. Admin Dashboard Template.
-		</div>
+		<?php $this->load->view('common/footer');?>
 	</div>
 	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 	<!-- BEGIN CORE PLUGINS -->   <script src="assets/metronics/plugins/jquery-1.10.1.min.js" type="text/javascript"></script>

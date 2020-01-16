@@ -5,7 +5,7 @@ class Sales extends CI_Controller {
         parent::__construct();
     }
     function index(){
-        $this->load->view('main');
+        $this->load->view('sales/index');
     }
     function getparam(){
         $param1=$this->uri->segment(3);
