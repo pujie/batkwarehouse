@@ -10,8 +10,8 @@
 <body>
 	<div class="page-lock">
 		<div class="page-logo">
-			<a class="brand" href="index.html">
-			<img src="assets/metronics/img/logo-big.png" alt="logo" />
+			<a class="brand" href="/">
+			<h4>Administrasi belanjaatk</h4>
 			</a>
 		</div>
 		<div class="page-body">

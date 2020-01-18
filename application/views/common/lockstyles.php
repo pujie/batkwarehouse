@@ -1,1 +1,1 @@
-<link href="assets/metronics/css/pages/lock.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/metronics/css/pages/lock.css" rel="stylesheet" type="text/css"/>
