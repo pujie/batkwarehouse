@@ -27,7 +27,7 @@
 					</div>
 					<div class="relogin">
 						<a href="/sales">Sales</a>
-						<a href="/sales">Gudang</a>
+						<a href="/gudang">Gudang</a>
 						<a href="/sales">Kasir</a>
 					</div>
 				</form>
