@@ -10,12 +10,6 @@
             <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
             <!-- END RESPONSIVE QUICK SEARCH FORM -->
         </li>
-        <li class="start ">
-            <a href="/main/dashboard">
-            <i class="icon-home"></i> 
-            <span class="title">Dashboard</span>
-            </a>
-        </li>
         <!-- BEGIN FRONT DEMO -->
         <li class="tooltips <?php echo $salesstatus;?>" data-placement="right" data-original-title="List&nbsp;Stock&nbsp;Barang&nbsp;Gudang&nbsp;Toko">
             <a href="/sales">
