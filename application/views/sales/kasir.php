@@ -80,7 +80,7 @@
 										<!--<button id="sample_editable_1_new" class="btn green">
 										Add New <i class="icon-plus"></i>
 										</button>-->
-										<a href="#addbuy" data-toggle="modal" class="btn red">Add</a>
+										<!--<a href="#addbuy" data-toggle="modal" class="btn red">Add</a>-->
 										<button class="btn btn green" id="addbuybutton">Add</button>
 									</div>
 									<div class="btn-group pull-right">
@@ -96,60 +96,28 @@
 								<table class="table table-striped table-hover table-bordered" id="sample_editable_1_">
 									<thead>
 										<tr>
-											<th>Username</th>
-											<th>Full Name</th>
-											<th>Points</th>
-											<th>Notes</th>
+											<th>Nama</th>
+											<th>Harga</th>
+											<th>Jumlah</th>
+											<th>Total</th>
 											<th>Edit</th>
 											<th>Delete</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr >
-											<td>alex</td>
-											<td>Alex Nilson</td>
-											<td>1234</td>
-											<td class="center">power user</td>
+											<td>Buku</td>
+											<td>60.000,00</td>
+											<td>3</td>
+											<td class="center">180.000,00</td>
 											<td><a class="edit" href="javascript:;">Edit</a></td>
 											<td><a class="delete" href="javascript:;">Delete</a></td>
 										</tr>
 										<tr >
-											<td>lisa</td>
-											<td>Lisa Wong</td>
-											<td>434</td>
-											<td class="center">new user</td>
-											<td><a class="edit" href="javascript:;">Edit</a></td>
-											<td><a class="delete" href="javascript:;">Delete</a></td>
-										</tr>
-										<tr >
-											<td>nick12</td>
-											<td>Nick Roberts</td>
-											<td>232</td>
-											<td class="center">power user</td>
-											<td><a class="edit" href="javascript:;">Edit</a></td>
-											<td><a class="delete" href="javascript:;">Delete</a></td>
-										</tr>
-										<tr >
-											<td>goldweb</td>
-											<td>Sergio Jackson</td>
-											<td>132</td>
-											<td class="center">elite user</td>
-											<td><a class="edit" href="javascript:;">Edit</a></td>
-											<td><a class="delete" href="javascript:;">Delete</a></td>
-										</tr>
-										<tr >
-											<td>webriver</td>
-											<td>Antonio Sanches</td>
-											<td>462</td>
-											<td class="center">new user</td>
-											<td><a class="edit" href="javascript:;">Edit</a></td>
-											<td><a class="delete" href="javascript:;">Delete</a></td>
-										</tr>
-										<tr >
-											<td>gist124</td>
-											<td>Nick Roberts</td>
-											<td>62</td>
-											<td class="center">new user</td>
+											<td>Ballpoint</td>
+											<td>24.000,00</td>
+											<td>5</td>
+											<td class="center">120.000,00</td>
 											<td><a class="edit" href="javascript:;">Edit</a></td>
 											<td><a class="delete" href="javascript:;">Delete</a></td>
 										</tr>
