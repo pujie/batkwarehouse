@@ -5,16 +5,17 @@ class Users extends CI_Controller{
         $this->load->model('user');
     }
     function index(){
-/*        $password = $this->uri->segment(3);
-        echo $this->user->createsalt($password);
-        print_r($this->user->encryptpassword($password));
-    */
         $this->setpassword(1,$this->uri->segment(3));
     }
-    function setpassword($user_id,$password){
+    function setpassword(){
+        $name = $this->uri->segment(3);
+        $pass = $this->uri->segment(4);
+        $this->_setpassword($name,$pass);
+    }
+    function _setpassword($name,$password){
         $encrypted = $this->user->encryptpassword($password);
         $this->user->save(array(
-            'id'=>1,'salt'=>$encrypted['salt'],'password'=>$encrypted['encrypted']
+            'name'=>$name,'salt'=>$encrypted['salt'],'password'=>$encrypted['encrypted']
         ));
     }
     function generatesalt($password){
@@ -22,11 +23,15 @@ class Users extends CI_Controller{
         print_r($this->user->encryptpassword($password));
     }
     function check(){
-        if($this->user->checkpassword(array('name'=>'Kasmudiyanto','password'=>'abcx'))){
+        $name = $this->uri->segment(3);
+        $pass = $this->uri->segment(4);
+        if($this->user->checkpassword(array('name'=>$name,'password'=>$pass))){
             echo 'benar';
         }else{
             echo 'salah';
         };
-
+    }
+    function createrandomstring(){
+        echo $this->user->randomstring();
     }
 }

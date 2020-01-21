@@ -7,9 +7,8 @@ class User extends CI_Model{
         return(sha1($password));
     }
     function encryptpassword($password){
-        $salt = $this->createsalt($password);
-        $sugar = sha1('sugar');
-        $encrypted = sha1($salt.$sugar);
+        $salt = $this->createsalt($this->randomstring());
+        $encrypted = sha1($salt.$password);
         return array('salt'=>$salt,'encrypted'=>$encrypted);
     }
     function checkpassword($obj){
@@ -21,20 +20,23 @@ class User extends CI_Model{
         $res = $que->result();
         $result = $res[0];
         $_salt = $result->salt;
-        $_pass = $result->password;
-        $sugar = sha1('sugar');
-        $salt = $this->createsalt($obj['password']);
-        $encrypted = sha1($salt.$sugar);
-        if($encrypted===$result->password){
+        $_encrypted = $result->password;
+        $_pass = $obj['password'];
+        $password = sha1($_salt.$_pass);
+        if($_encrypted===$password){
             return true;
         }
         return false;
     }
     function save($obj){
-        $sql = "update users ";
+        $sql = 'update users ' ;
         $sql.= 'set salt="'.$obj['salt'].'",password="'.$obj['password'].'"';
-        $sql.= 'where id='.$obj['id'].' ';
+        $sql.= 'where name="'.$obj['name'].'" ';
         $ci = & get_instance();
         $ci->db->query($sql);
+    }
+    function randomstring(){
+        $this->load->helper('string');
+        return random_string('alnum',10);
     }
 }
