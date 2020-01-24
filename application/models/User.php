@@ -13,8 +13,8 @@ class User extends CI_Model{
     }
     function checkpassword($obj){
         $sql = "select id,name,salt,password from users ";
-        $sql.= "where name='".$obj['name']."'";
-        echo $sql;echo '<br />';
+        $sql.= "where name='".$obj['username']."'";
+        //echo $sql;echo '<br />';
         $ci = & get_instance();
         $que = $ci->db->query($sql);
         $res = $que->result();
@@ -31,7 +31,7 @@ class User extends CI_Model{
     function save($obj){
         $sql = 'update users ' ;
         $sql.= 'set salt="'.$obj['salt'].'",password="'.$obj['password'].'"';
-        $sql.= 'where name="'.$obj['name'].'" ';
+        $sql.= 'where name="'.$obj['username'].'" ';
         $ci = & get_instance();
         $ci->db->query($sql);
     }

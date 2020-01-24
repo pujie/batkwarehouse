@@ -5,7 +5,7 @@ class Main extends CI_Controller {
         parent::__construct();
     }
     function index(){
-        $this->load->view('main');
+        $this->load->view('login');
     }
     function getparam(){
         $param1=$this->uri->segment(3);
@@ -27,5 +27,27 @@ class Main extends CI_Controller {
         $angka1=$this->uri->segment(3);
         $angka2=$this->uri->segment(4);
         echo $angka1+$angka2;
+    }
+    function loginhandler(){
+        $params = $this->input->post();
+        $this->load->model('user');
+        if($this->user->checkpassword($params)){
+            $this->gotopage($params['role']);
+        }else{
+            echo "tidak cocok";
+        }
+    }
+    function gotopage($n){
+        switch($n){
+            case '1':
+            redirect('/sales');
+            break;
+            case '2':
+            redirect('/gudang');
+            break;
+            case '3':
+            redirect('/kasir');
+            break;
+        }
     }
 }
