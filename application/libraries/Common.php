@@ -8,4 +8,9 @@ class Common{
             'entrygudangstatus'=>'noactive'
         );
     }
+    function checksession(){
+        if(is_null($_SESSION['username'])){
+            redirect('/main');
+        }
+    }
 }

@@ -24,11 +24,11 @@
                 <li class="dropdown user">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                     <img alt="" src="/assets/img/avatar1_small.jpg" />
-                    <span class="username">Guest</span>
+                    <span class="username"><?php echo $username;?></span>
                     <i class="icon-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                        <li><a href="/main/dologout"><i class="icon-key"></i> Log Out</a></li>
                     </ul>
                 </li>
                 <!-- END USER LOGIN DROPDOWN -->

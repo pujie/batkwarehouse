@@ -82,11 +82,10 @@
 										<label class="control-label">Kategori</label>
 										<div class="controls">
 											<select class="span6 m-wrap" data-placeholder="Choose a Category" tabindex="1">
-												<option value="">Select...</option>
-												<option value="Category 1">Category 1</option>
-												<option value="Category 2">Category 2</option>
-												<option value="Category 3">Category 5</option>
-												<option value="Category 4">Category 4</option>
+												<option value="">Pilihlah...</option>
+												<?php foreach($cats as $cat){?>
+												<option value="<?php echo $cat->id;?>"><?php echo $cat->name;?></option>
+												<?php }?>
 											</select>
 										</div>
 									</div>
@@ -98,12 +97,24 @@
 											<span class="help-inline">Some hint here</span>
 										</div>
 									</div>
-
+									<div class="control-group">
+										<label class="control-label">Jumlah</label>
+										<div class="controls">
+											<input type="text" class="span6 m-wrap mask_decimal" />
+											<span class="help-inline">Some hint here</span>
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label">Auto Complete</label>
+										<div class="controls">
+											<input type="text" class="span6 m-wrap" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot; Support <support@demo.com> &quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]" />
+											<p class="help-block">Start typing to auto complete!. E.g: California</p>
+										</div>
+									</div>
 									<div class="control-group">
 										<label class="control-label">Harga</label>
 										<div class="controls">
 											<input class="span6 m-wrap" id="mask_currency" type="text" />
-											<span class="help-inline">123456  =>  Rp ___.__1.234,56</span>
 										</div>
 									</div>
 									<div class="form-actions">

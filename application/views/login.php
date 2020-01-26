@@ -17,7 +17,7 @@
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
 		<form class="form-vertical login-form" action="/main/loginhandler" method="post">
-			<h3 class="form-title">Login ke akun anda</h3>
+			<h3 class="form-title">Login ke akun anda <?php echo $info;?></h3>
 			<div class="alert alert-error hide">
 				<button class="close" data-dismiss="alert"></button>
 				<span>Masukkan username dan password.</span>
@@ -48,7 +48,7 @@
 						<select name="role" id="role" class="m-wrap placeholder-no-fix" placeholder="Pilihlah">
 							<option value="0">Pilih Role</option>
 							<option value="1">Sales</option>
-							<option value="2">Role</option>
+							<option value="2">Gudang</option>
 							<option value="3">Kasir</option>
 						</select>
 					</div>

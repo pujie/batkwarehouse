@@ -3,9 +3,24 @@
 class Kasir extends CI_Controller {
     function __construct(){
         parent::__construct();
+        $this->load->library('common');
+        $this->load->model('product');
+        session_start();
     }
     function index(){
-        $this->load->view('main');
+        $this->common->checksession();
+        $objs = $this->product->gets();
+        $data = array(
+            'breadcrumb'=>array(
+                '0'=>'App','1'=>'Sales','2'=>'Stock'
+            ),
+            'objs'=>$objs['res'],
+            'amount'=>$objs['cnt'],
+            'salesstatus'=>'active',
+            'username'=>$_SESSION['username']
+        );
+        $data = array_merge($this->common->setdefaultmenustatus(),$data);
+        $this->load->view('sales/kasir_',$data);
     }
     function getparam(){
         $param1=$this->uri->segment(3);

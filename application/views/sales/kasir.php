@@ -28,13 +28,28 @@
 				<div class="modal-body">
 					<form action="#" class="form-horizontal">
 						<div class="control-group">
-							<label class="control-label">Input</label>
+							<label class="control-label">Nama</label>
 							<div class="controls">
-								<input type="text" class="span6 m-wrap" />
-								<span class="help-inline">Some hint here</span>
+								<input type="text" class="span6 m-wrap" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="<?php echo $products;?>"/>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">Harga</label>
+							<div class="controls">
+								<input type="text" class="span6 m-wrap" class="mask_currency">
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">Jumlah</label>
+							<div class="controls">
+								<input type="text" class="span6 m-wrap" class="mask_decimal">
 							</div>
 						</div>
 					</form>	
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">Save</button>
+					<button type="button" class="btn btn-alert">Close</button>
 				</div>
 			</div>
 			
@@ -77,11 +92,11 @@
 							<div class="portlet-body">
 								<div class="table-toolbar">
 									<div class="btn-group">
-										<!--<button id="sample_editable_1_new" class="btn green">
+										<!--<button id="sample_editable_1_newbatk" class="btn green">
 										Add New <i class="icon-plus"></i>
 										</button>-->
-										<!--<a href="#addbuy" data-toggle="modal" class="btn red">Add</a>-->
-										<button class="btn btn green" id="addbuybutton">Add</button>
+										<a href="#addbuy" data-toggle="modal" class="btn red">Add</a>
+										<!--<button class="btn btn green" id="addbuybutton">Add</button>-->
 									</div>
 									<div class="btn-group pull-right">
 										<button class="btn dropdown-toggle" data-toggle="dropdown">Tools <i class="icon-angle-down"></i>
@@ -93,7 +108,7 @@
 										</ul>
 									</div>
 								</div>
-								<table class="table table-striped table-hover table-bordered" id="sample_editable_1_">
+								<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 									<thead>
 										<tr>
 											<th>Nama</th>
@@ -151,14 +166,14 @@
 	<script  src="/assets/metronics/scripts/app.js"></script>
 	<script  src="/assets/metronics/scripts/table-editable.js"></script>    
 	<script>
-		jQuery(document).ready(function() {       
+		jQuery(document).ready(function() {
 		   App.init();
 		   TableEditable.init();
 		   $("#addbuybutton").click(function(){
 			   newRow = "<tr>";
 			   newRow+= "<td><button class=''>...</button></td><td></td><td></td><td></td><td></td><td></td>";
 			   newRow+= "</tr>";
-			   $("#sample_editable_1_").prepend(newRow);
+			   $("#sample_editable_1").prepend(newRow);
 		   });
 		});
 	</script>

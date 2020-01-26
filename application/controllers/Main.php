@@ -1,42 +1,38 @@
 <?php
-
 class Main extends CI_Controller {
     function __construct(){
         parent::__construct();
+        session_start();
+        $this->load->library('common');
     }
     function index(){
-        $this->load->view('login');
+        $info = '';
+        if(isset($_SESSION['wrongpassword'])){
+            $info = ($_SESSION['wrongpassword'])?'Password Salah':'';
+        };
+        if(isset($_SESSION['wrongpage'])){
+            $info = ($_SESSION['wrongpassword'])?'Halaman yang dipilih salah':'';
+        };
+        $data = array(
+            'info'=>$info
+        );
+        $this->load->view('login',$data);
     }
-    function getparam(){
-        $param1=$this->uri->segment(3);
-        $param2=$this->uri->segment(4);
-        $param3=$this->uri->segment(5);
-        $param4=$this->uri->segment(6);
-        if($param1=='ngetes'){
-            echo 'ini cuma ngetes ';
-        }
-        else{
-            echo 'ini serius <br/>
-            tapi boong LOL ';
-        }
-        echo $param1;
-        echo $param2;
-        echo $param3*$param4;
-    }
-    function penjumlahan(){
-        $angka1=$this->uri->segment(3);
-        $angka2=$this->uri->segment(4);
-        echo $angka1+$angka2;
+    function dologout(){
+        session_unset();
+        session_destroy();
+        redirect('/main');
     }
     function loginhandler(){
         $params = $this->input->post();
         $this->load->model('user');
         if($this->user->checkpassword($params)){
+            $_SESSION['username'] = $params['username'];
             $this->gotopage($params['role']);
         }else{
-            echo "tidak cocok";
-        }
-    }
+            $_SESSION['wrongpassword'] = true;
+            $this->common->checksession();
+    }}
     function gotopage($n){
         switch($n){
             case '1':
@@ -47,6 +43,10 @@ class Main extends CI_Controller {
             break;
             case '3':
             redirect('/kasir');
+            break;
+            case '0':
+            $_SESSION['wrongpage'] = true;
+            $this->common->checksession();
             break;
         }
     }
