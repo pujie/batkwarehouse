@@ -23,8 +23,8 @@ class Product extends CI_Model{
             'res'=>$que->result()
         );
     }
-    function getproductnames(){
-        $sql = 'select concat(id, " - ", name)name from products ';
+    function getproducts(){
+        $sql = 'select concat(id, " - ", name)name,sellingprice from products ';
         $sql.= '';
         $ci = & get_instance();
         $que = $ci->db->query($sql);

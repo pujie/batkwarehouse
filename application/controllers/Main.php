@@ -42,7 +42,7 @@ class Main extends CI_Controller {
             redirect('/gudang');
             break;
             case '3':
-            redirect('/kasir');
+            redirect('/sales/kasir');
             break;
             case '0':
             $_SESSION['wrongpage'] = true;
