@@ -116,21 +116,21 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr >
+										<tr id=3>
 											<td>Buku</td>
 											<td>60.000,00</td>
 											<td>3</td>
 											<td class="center">180.000,00</td>
 											<td><a class="edit" href="javascript:;">Edit</a></td>
-											<td><a class="delete" href="javascript:;">Delete</a></td>
+											<td><a class="deleteRow" href="javascript:;">Delete</a></td>
 										</tr>
-										<tr >
+										<tr id=2>
 											<td>Ballpoint</td>
 											<td>24.000,00</td>
 											<td>5</td>
 											<td class="center">120.000,00</td>
 											<td><a class="edit" href="javascript:;">Edit</a></td>
-											<td><a class="delete" href="javascript:;">Delete</a></td>
+											<td><a class="deleteRow" href="javascript:;">Delete</a></td>
 										</tr>
 									</tbody>
 								</table>
@@ -181,19 +181,25 @@
 				});
 			   }
 		   })
-		   $("#savetemporary").click(function(){
-			   str = '<tr>';
+		   $("#savetemporary").on("click",function(){
+			   str = '<tr id=3>';
 			   str+= '<td>'+$('#productid').val()+'</td>';
 			   str+= '<td>'+numberWithCommas($('#productprice').val())+'</td>';
 			   str+= '<td>'+$('#productamount').val()+'</td>';
 			   str+= '<td class="center">'+numberWithCommas($('#productprice').val()*$('#productamount').val())+'</td>';
 			   str+= '<td class="">Edit</td>';
-			   str+= '<td><a class="delete" href="javascript:;">Delete</a></td>';
+			   str+= '<td><a class="deleteRow" href="javascript:;">Delete</a></td>';
 			   str+= '</tr>';
+			   console.log("Invoked");
 			   $("#sample_editable_1").prepend(str);
+			   $(".deleteRow").on("click",function(){
+				console.log($(this));
+				})
 		   });
-		   $(".closedialog").click();
-
+		   $(".closedialog").on("click",function(){});
+			$(".deleteRow").on("click",function(){
+				console.log($(this));
+			})
 
 		   function numberWithCommas(x) {
 				var parts = x.toString().split(",");
