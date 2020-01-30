@@ -11,7 +11,7 @@ class Main extends CI_Controller {
             $info = ($_SESSION['wrongpassword'])?'Password Salah':'';
         };
         if(isset($_SESSION['wrongpage'])){
-            $info = ($_SESSION['wrongpassword'])?'Halaman yang dipilih salah':'';
+            $info = ($_SESSION['wrongpage'])?'Halaman yang dipilih salah':'';
         };
         $data = array(
             'info'=>$info
@@ -30,8 +30,10 @@ class Main extends CI_Controller {
             $_SESSION['username'] = $params['username'];
             $this->gotopage($params['role']);
         }else{
+            session_unset('wrongpage');
             $_SESSION['wrongpassword'] = true;
-            $this->common->checksession();
+            //$this->common->checksession();
+            redirect("/main");
     }}
     function gotopage($n){
         switch($n){
@@ -46,7 +48,8 @@ class Main extends CI_Controller {
             break;
             case '0':
             $_SESSION['wrongpage'] = true;
-            $this->common->checksession();
+            //$this->dologout();
+            redirect("/main");
             break;
         }
     }

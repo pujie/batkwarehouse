@@ -17,7 +17,8 @@
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
 		<form class="form-vertical login-form" action="/main/loginhandler" method="post">
-			<h3 class="form-title">Login ke akun anda <?php echo $info;?></h3>
+			<h3 class="form-title">Login ke akun anda </h3>
+			<h5><?php echo $info;?></h5>
 			<div class="alert alert-error hide">
 				<button class="close" data-dismiss="alert"></button>
 				<span>Masukkan username dan password.</span>
