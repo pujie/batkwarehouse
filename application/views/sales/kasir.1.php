@@ -104,24 +104,35 @@
 										</ul>
 									</div>
 								</div>
-								<table class="table table-striped table-hover table-bordered" id="sample_editable_1x">
+								<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 									<thead>
 										<tr>
-											<th>No</th>
 											<th>Nama</th>
 											<th>Harga</th>
 											<th>Jumlah</th>
 											<th>Total</th>
+											<th>Edit</th>
 											<th>Delete</th>
 										</tr>
 									</thead>
 									<tbody>
+										<tr id=3>
+											<td>Buku</td>
+											<td>60.000,00</td>
+											<td>3</td>
+											<td class="center">180.000,00</td>
+											<td><a class="edit" href="javascript:;">Edit</a></td>
+											<td><a class="deleteRow" href="javascript:;">Delete</a></td>
+										</tr>
+										<tr id=2>
+											<td>Ballpoint</td>
+											<td>24.000,00</td>
+											<td>5</td>
+											<td class="center">120.000,00</td>
+											<td><a class="edit" href="javascript:;">Edit</a></td>
+											<td><a class="deleteRow" href="javascript:;">Delete</a></td>
+										</tr>
 									</tbody>
-								</table>
-								<table class="table table-striped table-hover table-bordered">
-									<tr>
-									<td>Total</td><td><span id="total">0</span></td>
-									</tr>
 								</table>
 							</div>
 						</div>
@@ -154,7 +165,6 @@
 		jQuery(document).ready(function() {
 		   App.init();
 		   TableEditable.init();
-		   mytotal = 0;
 		   $("#productid").on("change",function(){
 			x = $("#productid").val().split("-");
 			   if(x.length>1){
@@ -172,23 +182,16 @@
 			   }
 		   })
 		   $("#savetemporary").on("click",function(){
-			   amount = $("#sample_editable_1x tbody tr").length;
-			   lengthadd = 0;
-			   lengthadd = amount + 1;
-			   temp = $('#productprice').val()*$('#productamount').val();
 			   str = '<tr id=3>';
-			   str+= '<td class="">'+lengthadd+'</td>';
 			   str+= '<td>'+$('#productid').val()+'</td>';
 			   str+= '<td>'+numberWithCommas($('#productprice').val())+'</td>';
 			   str+= '<td>'+$('#productamount').val()+'</td>';
 			   str+= '<td class="center">'+numberWithCommas($('#productprice').val()*$('#productamount').val())+'</td>';
+			   str+= '<td class="">Edit</td>';
 			   str+= '<td><a class="deleteRow" href="javascript:;">Delete</a></td>';
 			   str+= '</tr>';
 			   console.log("Invoked");
-			   mytotal*=1;
-			   mytotal = mytotal+temp;
-			   $("#total").html(numberWithCommas(mytotal));
-			   $("#sample_editable_1x").prepend(str);
+			   $("#sample_editable_1").prepend(str);
 			   $(".deleteRow").on("click",function(){
 				console.log($(this));
 				})
