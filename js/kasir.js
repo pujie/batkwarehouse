@@ -63,7 +63,7 @@
             save({
                     tableName:'cashier',
                     data:{
-                    id:$(this).attr("id"),
+                    product_id:$(this).attr("id"),
                     amount:$(this).attr("amount"),
                     price:$(this).attr("price")}
                 },function(res){

@@ -4,7 +4,6 @@ Class Crud extends CI_Model{
         parent::__construct();
     }
     function save($obj){
-        //return json_encode($obj);
         $fields = $obj['data'];
         $keys = array();$vals = array();
         foreach($fields as $key=>$val){
@@ -18,5 +17,16 @@ Class Crud extends CI_Model{
         $ci = & get_instance();
         $ci->db->query($sql);
         return $sql;
+    }
+    function gets($objs){
+        $keys = array();$vals = array();
+        foreach($objs['data'] as $key=>$val){
+            array_push($keys,$key);
+            array_push($vals,$val);
+        }
+        $sql = 'select '.implode(',',$vals).' from ' . $objs['tableName'] . ' ';
+        $ci = & get_instance();
+        $res = $ci->db->query($sql);
+        return array('res'=>$res->result(),'cnt'=>$res->num_rows());
     }
 }

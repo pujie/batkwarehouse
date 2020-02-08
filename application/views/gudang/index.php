@@ -40,7 +40,7 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home"></i>
-								<a href="index.html"><?php echo $breadcrumb[0];?></a> 
+								<a href="/"><?php echo $breadcrumb[0];?></a> 
 								<i class="icon-angle-right"></i>
 							</li>
 							<li>
@@ -61,7 +61,7 @@
 						<!-- BEGIN EXAMPLE TABLE PORTLET-->
 						<div class="portlet box blue">
 							<div class="portlet-title">
-								<div class="caption"><i class="icon-globe"></i>Products, total <?php echo $amount;?></div>
+								<div class="caption"><i class="icon-globe"></i><?php echo $breadcrumb[2];?>, total <?php echo $amount;?></div>
 								<div class="actions">
 									<div class="btn-group">
 										<a class="btn" href="#" data-toggle="dropdown">
@@ -71,8 +71,6 @@
 										<div id="sample_2_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
 											<label><input type="checkbox" checked data-column="0">Nama</label>
 											<label><input type="checkbox" checked data-column="1">Keterangan</label>
-											<label><input type="checkbox" checked data-column="2">Harga Jual</label>
-											<label><input type="checkbox" checked data-column="3">Ketersediaan</label>
 											<label><input type="checkbox" checked data-column="4">Aksi</label>
 										</div>
 									</div>
@@ -82,10 +80,8 @@
 								<table class="table table-striped table-bordered table-hover table-full-width" id="sample_2">
 									<thead>
 										<tr>
-											<th>Nama</th>
-											<th>Keterangan</th>
-											<th class="hidden-480">Harga Jual</th>
-											<th class="hidden-480">Ketersediaan</th>
+											<th width="40%">Nama</th>
+											<th width="40%">Keterangan</th>
 											<th class="hidden-480">Aksi</th>
 										</tr>
 									</thead>
@@ -94,8 +90,6 @@
 										<tr>
 											<td><?php echo $obj->name;?></td>
 											<td><?php echo $obj->description;?></td>
-											<td class="hidden-480"><?php echo $obj->sellingprice;?></td>
-											<td class="hidden-480"><?php echo $obj->amount;?></td>
 											<td class="hidden-480"><?php echo form_dropdown('action',array('Pilih','Edit','Detail'),0,'class="btn"');?></td>
 										</tr>
 										<?php }?>
