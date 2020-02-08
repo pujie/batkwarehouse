@@ -19,11 +19,13 @@
         }
     })
     $("#savetemporary").on("click",function(){
+        productstr = $('#productid').val().split('-');
+        id = productstr[0];
         amount = $("#sample_editable_1x tbody tr").length;
         lengthadd = 0;
         lengthadd = amount + 1;
         temp = $('#productprice').val()*$('#productamount').val();
-        str = '<tr tot='+temp+'>';
+        str = '<tr tot='+temp+' id='+id+' amount='+$('#productamount').val()+' price='+$('#productprice').val()+'>';
         str+= '<td class="">'+lengthadd+'</td>';
         str+= '<td>'+$('#productid').val()+'</td>';
         str+= '<td>'+numberWithCommas($('#productprice').val())+'</td>';
@@ -36,18 +38,6 @@
         mytotal = mytotal+temp;
         $("#total").html(numberWithCommas(mytotal));
         $("#sample_editable_1x").prepend(str);
-        $(".deleteRowx").on("click",function(){
-         console.log($(this));
-         tr = $(this).parent().parent();
-         tot = tr.attr('tot')*1;
-         console.log("Tot",tot);
-         console.log("MyTotal",mytotal);
-         mytotal*=1;
-         mytotal = mytotal-tot;
-         $("#total").html(numberWithCommas(mytotal));
-         $(this).parent().parent().remove();
-         $(this).off('click');  
-         })
     });
     $(".closedialog").on("click",function(){});
      deleteRow = function(par){
@@ -70,6 +60,31 @@
      $("#btnpay").on("click",function(){
         $("#sample_editable_1x tbody tr").each(function(){
             console.log("TR Tot",$(this).attr("tot"));
+            save({
+                    tableName:'cashier',
+                    data:{
+                    id:$(this).attr("id"),
+                    amount:$(this).attr("amount"),
+                    price:$(this).attr("price")}
+                },function(res){
+                console.log(res);
+            });
         });
+     })
+     save = function(obj,callback){
+         console.log("Keys",Object.keys(obj));
+         $.ajax({
+             url:'/main/save',
+             data:obj,
+             type:'POST',
+             //dataType:'json'
+         })
+         .done(function(res){
+             console.log('AJAX result',res);
+         });
+         callback("done");
+     }
+     $('.selectall').on("click",function(){
+         $(this).select();
      })
  }(jQuery));

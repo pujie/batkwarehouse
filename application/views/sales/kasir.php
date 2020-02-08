@@ -30,7 +30,7 @@
 						<div class="control-group">
 							<label class="control-label">Nama</label>
 							<div class="controls">
-								<input type="text" class="span6 m-wrap" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="<?php echo $products;?>" id="productid"/>
+								<input type="text" class="span6 m-wrap selectall" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="<?php echo $products;?>" id="productid"/>
 							</div>
 						</div>
 						<div class="control-group">
@@ -42,7 +42,7 @@
 						<div class="control-group">
 							<label class="control-label">Jumlah</label>
 							<div class="controls">
-								<input type="text" class="span6 m-wrap" class="mask_decimal" value="1" id="productamount" />
+								<input type="text" class="span6 m-wrap selectall" class="mask_decimal" value="1" id="productamount" />
 							</div>
 						</div>
 					</form>	

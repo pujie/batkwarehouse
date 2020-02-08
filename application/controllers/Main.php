@@ -53,4 +53,9 @@ class Main extends CI_Controller {
             break;
         }
     }
+    function save(){
+        $params = $this->input->post();
+        $this->load->model('crud');
+        echo $this->crud->save($params);
+    }
 }
