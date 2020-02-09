@@ -90,7 +90,22 @@
 										<tr>
 											<td><?php echo $obj->name;?></td>
 											<td><?php echo $obj->description;?></td>
-											<td class="hidden-480"><?php echo form_dropdown('action',array('Pilih','Edit','Detail'),0,'class="btn"');?></td>
+											<td class="hidden-480">
+												<div class="btn-group">
+													<a class="btn green" href="#" data-toggle="dropdown">
+													<i class="icon-cogs"></i> Action
+													<i class="icon-angle-down"></i>
+													</a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="/gudang/edit/<?php echo $obj->id;?>"><i class="icon-pencil"></i> Edit</a>
+														</li>
+														<li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+														<li class="divider"></li>
+														<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+													</ul>
+												</div>
+											</td>
 										</tr>
 										<?php }?>
 									</tbody>

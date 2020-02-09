@@ -29,4 +29,17 @@ Class Crud extends CI_Model{
         $res = $ci->db->query($sql);
         return array('res'=>$res->result(),'cnt'=>$res->num_rows());
     }
+    function getby($objs){
+        $keys = array();$vals = array();
+        foreach($objs['data'] as $key=>$val){
+            array_push($keys,$key);
+            array_push($vals,$val);
+        }
+        $sql = 'select '.implode(',',$vals).' from ' . $objs['tableName'] . ' ';
+        $sql.= 'where ' . $objs['key'] . ' = ' . $objs['searchval'] . ' ';
+        $ci = & get_instance();
+        $res = $ci->db->query($sql);
+        $result = $res->result();
+        return $result[0];
+    }
 }

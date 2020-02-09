@@ -30,7 +30,7 @@ class Gudang extends CI_Controller {
         $objs = $this->crud->gets(array(
             "tableName"=>"warehouses",
             "data"=>array(
-                "name","description"
+                "id","name","description"
             )
         ));
         $data = array(
@@ -46,14 +46,22 @@ class Gudang extends CI_Controller {
         $this->load->view('gudang/index',$data);
     }
     function edit(){
-        $objs = $this->product->gets();
+        $this->common->checksession();
+        $obj = $this->crud->getby(array(
+            "tableName"=>"warehouses",
+            "key"=>"id",
+            "searchval"=>1,
+            "data"=>array(
+                "id","name","description"
+            )
+        ));
         $data = array(
             'breadcrumb'=>array(
                 '0'=>'App','1'=>'Sales','2'=>'Edit Gudang'
             ),
-            'objs'=>$objs['res'],
-            'amount'=>$objs['cnt'],
-            'gudangstatus'=>'active'
+            'obj'=>$obj,
+            'gudangstatus'=>'active',
+            'username'=>$_SESSION['username']
         );
         $data = array_merge($this->common->setdefaultmenustatus(),$data);
         $this->load->view('gudang/edit',$data);
