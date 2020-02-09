@@ -77,7 +77,7 @@
 											<input class="m-wrap m-ctrl-medium date-picker" readonly size="16" type="text" value="" />
 										</div>
 									</div>
-
+									<input type="hidden" name="id" value="<?php echo $obj->id;?>">
 									<div class="control-group">
 										<label class="control-label">Nama</label>
 										<div class="controls">

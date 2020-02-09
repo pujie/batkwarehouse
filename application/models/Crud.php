@@ -6,14 +6,19 @@ Class Crud extends CI_Model{
     function save($obj){
         $fields = $obj['data'];
         $keys = array();$vals = array();
+        $keypar = array();
         foreach($fields as $key=>$val){
             array_push($keys,$key);
             array_push($vals,$val);
+            array_push($keypar,''.$key.'="'.$val.'"');
         }
         $sql = 'insert into ' . $obj['tableName'] . ' ';
         $sql.= '('.implode(',',$keys).')';
         $sql.= 'values ';
         $sql.= '("'.implode('","',$vals).'")';
+        $sql.= 'on duplicate key update ';
+        $sql.= ''.implode(',',$keypar).'';
+        $sql.= '';
         $ci = & get_instance();
         $ci->db->query($sql);
         return $sql;

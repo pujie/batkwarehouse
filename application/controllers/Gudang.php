@@ -50,7 +50,7 @@ class Gudang extends CI_Controller {
         $obj = $this->crud->getby(array(
             "tableName"=>"warehouses",
             "key"=>"id",
-            "searchval"=>1,
+            "searchval"=>$this->uri->segment(3),
             "data"=>array(
                 "id","name","description"
             )
@@ -89,7 +89,7 @@ class Gudang extends CI_Controller {
             'name'=>$params['name'],'description'=>$params['description']
         );
         $obj['tableName'] = 'warehouses';
-        $obj['data'] = $data;
+        $obj['data'] = $params;
         $this->load->model('crud');
         $this->crud->save($obj);
         redirect("/Gudang/");
