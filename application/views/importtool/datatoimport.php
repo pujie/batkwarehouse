@@ -59,16 +59,58 @@
 						<!-- BEGIN EXAMPLE TABLE PORTLET-->
 						<!-- END EXAMPLE TABLE PORTLET-->
 						<!-- BEGIN EXAMPLE TABLE PORTLET-->
-						<div class="controls">
+						<div class="portlet box blue">
+							<div class="portlet-title">
+								<div class="caption"><i class="icon-globe"></i><?php echo $breadcrumb[2];?>, total <?php echo $amount;?></div>
+								<div class="actions">
+									<div class="btn-group">
+                                        <a class="btn red" href="/importtool/index" >Import</a>
+									</div>
+								</div>
+                            </div>
+                            
 
 
-                            <h1>Import Berhasil</h1>
-                            <a href="/importtool/">Import Lainnya</a>
-                            <br>
-                            <a href="/">Kembali ke menu utama</a>
+
+    <form action="/importtool/save" method="post">
+
+    <div class="control-group">
+										<label class="control-label"></label>
+										<div class="controls">
+                                            <div class="input-append color colorpicker-default" data-color="#3865a8" data-color-format="rgba">
+                                                <input type="text" class="m-wrap" name="category" placeholder="Kategori" />
+                                                <button name="btnsave" class="btn">Simpan</button>
+											</div>
+        
+										</div>
+									</div>
 
 
-                        </div>
+
+
+        <div class="portlet-body">
+            <table class="table table-striped table-bordered" id="tProcess">
+                <tbody>
+                    <?php $c = 0;?>
+                    <?php foreach($results as $obj){?>
+                    <tr class="odd gradeX">
+                        <th><?php echo $c;$c++;?></th>
+                        <td><?php echo $obj["kditem"];?></td>
+                        <td><?php echo $obj["nmitem"];?></td>
+                        <td><?php echo $obj["hpp"];?></td>
+                        <td><?php echo $obj["qty"];?></td>
+                    </tr>
+                    <input type="hidden" name="kditem[]" value="<?php echo $obj['kditem'];?>">
+                    <input type="hidden" name="nmitem[]" value="<?php echo $obj['nmitem'];?>">
+                    <input type="hidden" name="hpp[]" value="<?php echo $obj['hpp'];?>">
+                    <input type="hidden" name="qty[]" value="<?php echo $obj['qty'];?>">
+                    <input type="hidden" name="count" value="<?php echo $c;?>">
+                    <?php }?>
+                </tbody>
+            </table>
+        </div>
+        </form>
+        </div>
 						<!-- END EXAMPLE TABLE PORTLET-->
 					</div>
 				</div>

@@ -28,7 +28,7 @@ Class Importtool extends CI_Controller{
         ));
         $data = array(
             'breadcrumb'=>array(
-                '0'=>'App','1'=>'Import','2'=>'List'
+                '0'=>'App','1'=>'Import','2'=>'List yang telah diimport'
             ),
             'objs'=>$objs['res'],
             'amount'=>$objs['cnt'],
@@ -65,7 +65,31 @@ Class Importtool extends CI_Controller{
                 "role"=>"1",
                 "feedData"=>"processimport"
             );
-            $this->load->view("importtool/akskomp",$data);
+
+
+
+
+            $objs = $this->crud->gets(array(
+                "tableName"=>"temp",
+                "data"=>array(
+                    "kditem","nmitem","category","qty"
+                )
+            ));
+            $data = array(
+                'breadcrumb'=>array(
+                    '0'=>'App','1'=>'Import','2'=>'List untuk diimport'
+                ),
+                'amount'=>$c,
+                'importstatus'=>'active',
+                "results" =>$objarr,
+                'username'=>$_SESSION['username']
+            );
+            $data = array_merge($this->common->setdefaultmenustatus(),$data);
+
+
+
+
+            $this->load->view("importtool/datatoimport",$data);
         }
     }
     function save(){
@@ -89,6 +113,15 @@ Class Importtool extends CI_Controller{
         redirect("/importtool/savesuccess");
     }
     function savesuccess(){
-        $this->load->view('/importtool/success');
+        $this->common->checksession();
+        $data = array(
+            'breadcrumb'=>array(
+                '0'=>'App','1'=>'Import','2'=>'Sukses'
+            ),
+            'importstatus'=>'active',
+            'username'=>$_SESSION['username']
+        );
+        $data = array_merge($this->common->setdefaultmenustatus(),$data);
+        $this->load->view('/importtool/success',$data);
     }
 }
