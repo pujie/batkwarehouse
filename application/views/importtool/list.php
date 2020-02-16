@@ -64,14 +64,17 @@
 								<div class="caption"><i class="icon-globe"></i><?php echo $breadcrumb[2];?>, total <?php echo $amount;?></div>
 								<div class="actions">
 									<div class="btn-group">
+                                        <a class="btn red" href="/importtool/index" >Import</a>
 										<a class="btn" href="#" data-toggle="dropdown">
 										Columns
 										<i class="icon-angle-down"></i>
 										</a>
 										<div id="sample_2_column_toggler" class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
-											<label><input type="checkbox" checked data-column="0">Nama</label>
-											<label><input type="checkbox" checked data-column="1">Keterangan</label>
-											<label><input type="checkbox" checked data-column="4">Aksi</label>
+											<label><input type="checkbox" checked data-column="0">Kode Item</label>
+											<label><input type="checkbox" checked data-column="1">Nama</label>
+                                            <label><input type="checkbox" checked data-column="2">Kategori</label>
+                                            <label><input type="checkbox" checked data-column="3">Jumlah</label>
+                                            <label><input type="checkbox" checked data-column="4">Aksi</label>
 										</div>
 									</div>
 								</div>

@@ -7,7 +7,16 @@ Class Importtool extends CI_Controller{
         session_start();
     }
     function index(){
-        $this->load->view('importtool/index');
+        $this->common->checksession();
+        $data = array(
+            'breadcrumb'=>array(
+                '0'=>'App','1'=>'Import','2'=>'Import'
+            ),
+            'importstatus'=>'active',
+            'username'=>$_SESSION['username']
+        );
+        $data = array_merge($this->common->setdefaultmenustatus(),$data);
+        $this->load->view('importtool/index',$data);
     }
     function list(){
         $this->common->checksession();
@@ -30,7 +39,6 @@ Class Importtool extends CI_Controller{
         $this->load->view('importtool/list',$data);
     }
     function import(){
-        session_start();
         $params = $this->input->post();
         if(isset($_POST["submit"]))
         {
