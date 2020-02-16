@@ -36,7 +36,7 @@
             </a>
         </li>
         <li class="tooltips <?php echo $importstatus;?>" data-placement="right" data-original-title="List&nbsp;Stock&nbsp;Barang&nbsp;Gudang&nbsp;Toko">
-            <a href="/importtool/list">
+            <a href="/importtool/productlist">
             <i class="icon-gift"></i> 
             <span class="title">Import</span>
             </a>

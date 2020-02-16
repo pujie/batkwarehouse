@@ -82,7 +82,7 @@
 								<div class="control-group">
 									<label class="control-label"></label>
 									<div class="controls">
-									<a class="btn red" href="/importtool/lists">List Import</a>
+									<a class="btn red" href="/importtool/productlist">List Import</a>
 										</a>  
 									</div>
 								</div>

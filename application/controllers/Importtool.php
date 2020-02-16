@@ -18,7 +18,7 @@ Class Importtool extends CI_Controller{
         $data = array_merge($this->common->setdefaultmenustatus(),$data);
         $this->load->view('importtool/index',$data);
     }
-    function list(){
+    function productlist(){
         $this->common->checksession();
         $objs = $this->crud->gets(array(
             "tableName"=>"temp",
