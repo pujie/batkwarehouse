@@ -5,7 +5,8 @@ class Common{
             'salesstatus'=>'noactive',
             'kasirstatus'=>'noactive',
             'gudangstatus'=>'noactive',
-            'entrygudangstatus'=>'noactive'
+            'entrygudangstatus'=>'noactive',
+            'importstatus'=>'noactive'
         );
     }
     function checksession(){

@@ -2,9 +2,32 @@
 Class Importtool extends CI_Controller{
     function __construct(){
         parent::__construct();
+        $this->load->library('common');
+        $this->load->model("crud");
+        session_start();
     }
     function index(){
         $this->load->view('importtool/index');
+    }
+    function list(){
+        $this->common->checksession();
+        $objs = $this->crud->gets(array(
+            "tableName"=>"temp",
+            "data"=>array(
+                "kditem","nmitem","category","qty"
+            )
+        ));
+        $data = array(
+            'breadcrumb'=>array(
+                '0'=>'App','1'=>'Import','2'=>'List'
+            ),
+            'objs'=>$objs['res'],
+            'amount'=>$objs['cnt'],
+            'importstatus'=>'active',
+            'username'=>$_SESSION['username']
+        );
+        $data = array_merge($this->common->setdefaultmenustatus(),$data);
+        $this->load->view('importtool/list',$data);
     }
     function import(){
         session_start();
@@ -44,7 +67,6 @@ Class Importtool extends CI_Controller{
         $hpp = $params['hpp'];
         $qty = $params['qty'];
         $category = $params['category'];
-        $this->load->model('crud');
         for($c = 1;$c<$params['count'];$c++ ){
             $sql = "insert into temp (kditem,nmitem, category,hpp, qty) ";
             $sql.= "values ";

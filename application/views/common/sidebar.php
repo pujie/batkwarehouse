@@ -35,6 +35,12 @@
             <span class="title">Entry Gudang</span>
             </a>
         </li>
+        <li class="tooltips <?php echo $importstatus;?>" data-placement="right" data-original-title="List&nbsp;Stock&nbsp;Barang&nbsp;Gudang&nbsp;Toko">
+            <a href="/importtool/list">
+            <i class="icon-gift"></i> 
+            <span class="title">Import</span>
+            </a>
+        </li>
         <!-- END FRONT DEMO -->
     </ul>
     <!-- END SIDEBAR MENU -->
