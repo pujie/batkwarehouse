@@ -10,7 +10,9 @@ Class Importtool extends CI_Controller{
         $this->common->checksession();
         $data = array(
             'breadcrumb'=>array(
-                '0'=>'App','1'=>'Import','2'=>'Import'
+                '0'=>array('label'=>'App','url'=>'/'),
+                '1'=>array('label'=>'Import Tool','url'=>'/importtool'),
+                '2'=>array('label'=>'Index','url'=>'#')
             ),
             'importstatus'=>'active',
             'username'=>$_SESSION['username']
@@ -28,7 +30,9 @@ Class Importtool extends CI_Controller{
         ));
         $data = array(
             'breadcrumb'=>array(
-                '0'=>'App','1'=>'Import','2'=>'List yang telah diimport'
+                '0'=>array('label'=>'App','url'=>'/'),
+                '1'=>array('label'=>'Import Tool','url'=>'/importtool'),
+                '2'=>array('label'=>'List','url'=>'#')
             ),
             'objs'=>$objs['res'],
             'amount'=>$objs['cnt'],
@@ -77,9 +81,11 @@ Class Importtool extends CI_Controller{
             ));
             $data = array(
                 'breadcrumb'=>array(
-                    '0'=>'App','1'=>'Import','2'=>'List untuk diimport'
+                    '0'=>array('label'=>'App','url'=>'/'),
+                    '1'=>array('label'=>'Import Tool','url'=>'/importtool'),
+                    '2'=>array('label'=>'Import','url'=>'#')
                 ),
-                'amount'=>$c,
+                    'amount'=>$c,
                 'importstatus'=>'active',
                 "results" =>$objarr,
                 'username'=>$_SESSION['username']
@@ -116,7 +122,9 @@ Class Importtool extends CI_Controller{
         $this->common->checksession();
         $data = array(
             'breadcrumb'=>array(
-                '0'=>'App','1'=>'Import','2'=>'Sukses'
+                '0'=>array('label'=>'App','url'=>'/'),
+                '1'=>array('label'=>'Import Tool','url'=>'/importtool'),
+                '2'=>array('label'=>'Success','url'=>'#')
             ),
             'importstatus'=>'active',
             'username'=>$_SESSION['username']

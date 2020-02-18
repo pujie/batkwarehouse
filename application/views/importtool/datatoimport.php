@@ -40,14 +40,14 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home"></i>
-								<a href="/"><?php echo $breadcrumb[0];?></a> 
+								<a href="/"><?php echo $breadcrumb[0]['label'];?></a> 
 								<i class="icon-angle-right"></i>
 							</li>
 							<li>
-								<a href="#"><?php echo $breadcrumb[1];?></a>
+								<a href="<?php echo $breadcrumb[1]['url'];?>"><?php echo $breadcrumb[1]['label'];?></a>
 								<i class="icon-angle-right"></i>
 							</li>
-							<li><a href="#"><?php echo $breadcrumb[2];?></a></li>
+							<li><a href="#"><?php echo $breadcrumb[2]['label'];?></a></li>
 						</ul>
 						<!-- END PAGE TITLE & BREADCRUMB-->
 					</div>
@@ -61,7 +61,7 @@
 						<!-- BEGIN EXAMPLE TABLE PORTLET-->
 						<div class="portlet box blue">
 							<div class="portlet-title">
-								<div class="caption"><i class="icon-globe"></i><?php echo $breadcrumb[2];?>, total <?php echo $amount;?></div>
+								<div class="caption"><i class="icon-globe"></i><?php echo $breadcrumb[2]['label'];?>, total <?php echo $amount;?></div>
 								<div class="actions">
 									<div class="btn-group">
                                         <a class="btn red" href="/importtool/index" >Import</a>

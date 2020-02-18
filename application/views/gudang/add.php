@@ -44,14 +44,14 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home"></i>
-								<a href="index.html"><?php echo $breadcrumb[0];?></a> 
+								<a href="/"><?php echo $breadcrumb[0]['label'];?></a> 
 								<i class="icon-angle-right"></i>
 							</li>
 							<li>
-								<a href="#"><?php echo $breadcrumb[1];?></a>
+								<a href="<?php echo $breadcrumb[1]['url'];?>"><?php echo $breadcrumb[1]['label'];?></a>
 								<i class="icon-angle-right"></i>
 							</li>
-							<li><a href="#"><?php echo $breadcrumb[2];?></a></li>
+							<li><a href="#"><?php echo $breadcrumb[2]['label'];?></a></li>
 						</ul>
 					</div>
 				</div>
@@ -62,7 +62,7 @@
 						<!-- BEGIN SAMPLE FORM PORTLET-->   
 						<div class="portlet box blue">
 							<div class="portlet-title">
-								<div class="caption"><i class="icon-reorder"></i>Entry Gudang</div>
+								<div class="caption"><i class="icon-reorder"></i>Add Gudang</div>
 								<div class="tools">
 									<a href="#portlet-config" data-toggle="modal" class="config"></a>
 									<a href="javascript:;" class="reload"></a>
@@ -82,7 +82,6 @@
 										<label class="control-label">Nama</label>
 										<div class="controls">
 											<input type="text" name="name" class="span6 m-wrap" />
-											<span class="help-inline">Some hint here</span>
 										</div>
 									</div>
 									<div class="control-group">

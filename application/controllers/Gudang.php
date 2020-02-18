@@ -14,7 +14,9 @@ class Gudang extends CI_Controller {
         $cats = $this->product->getcategories();
         $data = array(
             'breadcrumb'=>array(
-                '0'=>'App','1'=>'Sales','2'=>'Entri Gudang'
+                '0'=>array('label'=>'App','url'=>'/'),
+                '1'=>array('label'=>'Gudang','url'=>'/gudang'),
+                '2'=>array('label'=>'Add','url'=>'#')
             ),
             'objs'=>$objs['res'],
             'cats'=>$cats['res'],
@@ -35,7 +37,9 @@ class Gudang extends CI_Controller {
         ));
         $data = array(
             'breadcrumb'=>array(
-                '0'=>'App','1'=>'Sales','2'=>'Gudang'
+                '0'=>array('label'=>'App','url'=>'/'),
+                '1'=>array('label'=>'Gudang','url'=>'/gudang'),
+                '2'=>array('label'=>'Index','url'=>'#')
             ),
             'objs'=>$objs['res'],
             'amount'=>$objs['cnt'],
@@ -57,7 +61,9 @@ class Gudang extends CI_Controller {
         ));
         $data = array(
             'breadcrumb'=>array(
-                '0'=>'App','1'=>'Sales','2'=>'Edit Gudang'
+                '0'=>array('label'=>'App','url'=>'/'),
+                '1'=>array('label'=>'Gudang','url'=>'/gudang'),
+                '2'=>array('label'=>'Edit','url'=>'#')
             ),
             'obj'=>$obj,
             'gudangstatus'=>'active',
@@ -65,23 +71,6 @@ class Gudang extends CI_Controller {
         );
         $data = array_merge($this->common->setdefaultmenustatus(),$data);
         $this->load->view('gudang/edit',$data);
-    }
-    function entry(){
-        $this->common->checksession();
-        $objs = $this->product->gets();
-        $cats = $this->product->getcategories();
-        $data = array(
-            'breadcrumb'=>array(
-                '0'=>'App','1'=>'Sales','2'=>'Entri Gudang'
-            ),
-            'objs'=>$objs['res'],
-            'cats'=>$cats['res'],
-            'amount'=>$objs['cnt'],
-            'entrygudangstatus'=>'active',
-            'username'=>$_SESSION['username']
-        );
-        $data = array_merge($this->common->setdefaultmenustatus(),$data);
-        $this->load->view('gudang/entry',$data);
     }
     function save(){
         $params = $this->input->post();

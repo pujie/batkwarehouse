@@ -65,14 +65,14 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="icon-home"></i>
-								<a href="index.html"><?php echo $breadcrumb[0];?></a> 
+								<a href="/"><?php echo $breadcrumb[0]['label'];?></a> 
 								<i class="icon-angle-right"></i>
 							</li>
 							<li>
-								<a href="#"><?php echo $breadcrumb[1];?></a>
+								<a href="<?php echo $breadcrumb[1]['url'];?>"><?php echo $breadcrumb[1]['label'];?></a>
 								<i class="icon-angle-right"></i>
 							</li>
-							<li><a href="#"><?php echo $breadcrumb[2];?></a></li>
+							<li><a href="#"><?php echo $breadcrumb[2]['label'];?></a></li>
 						</ul>
 						<!-- END PAGE TITLE & BREADCRUMB-->
 					</div>

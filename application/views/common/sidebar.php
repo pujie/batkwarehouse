@@ -30,7 +30,7 @@
             </a>
         </li>
         <li class="tooltips <?php echo $entrygudangstatus;?>" data-placement="right" data-original-title="List&nbsp;Stock&nbsp;Barang&nbsp;Gudang&nbsp;Toko">
-            <a href="/gudang/entry">
+            <a href="/gudang/add">
             <i class="icon-gift"></i> 
             <span class="title">Entry Gudang</span>
             </a>

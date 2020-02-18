@@ -42,7 +42,9 @@ class Sales extends CI_Controller {
         $objs = $this->product->gets();
         $data = array(
             'breadcrumb'=>array(
-                '0'=>'App','1'=>'Sales','2'=>'Kasir'
+                '0'=>array('label'=>'App','url'=>'/'),
+                '1'=>array('label'=>'Sales','url'=>'/sales'),
+                '2'=>array('label'=>'Kasir','url'=>'#')
             ),
             'objs'=>$objs['res'],
             'amount'=>$objs['cnt'],
