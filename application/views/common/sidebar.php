@@ -35,6 +35,12 @@
             <span class="title">Entry Gudang</span>
             </a>
         </li>
+        <li class="tooltips <?php echo $groupstatus;?>" data-placement="right" data-original-title="List&nbsp;Stock&nbsp;Barang&nbsp;Gudang&nbsp;Toko">
+            <a href="/groups/">
+            <i class="icon-gift"></i> 
+            <span class="title">Group Item</span>
+            </a>
+        </li>
         <li class="tooltips <?php echo $importstatus;?>" data-placement="right" data-original-title="List&nbsp;Stock&nbsp;Barang&nbsp;Gudang&nbsp;Toko">
             <a href="/importtool/productlist">
             <i class="icon-gift"></i> 

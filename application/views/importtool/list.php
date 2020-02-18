@@ -64,7 +64,7 @@
 								<div class="caption"><i class="icon-globe"></i><?php echo $breadcrumb[2];?>, total <?php echo $amount;?></div>
 								<div class="actions">
 									<div class="btn-group">
-                                        <a class="btn red" href="/importtool/index" >Import</a>
+                                        <a class="btn red" href="/importtool/index" >Import/Update Ke Database</a>
 										<a class="btn" href="#" data-toggle="dropdown">
 										Columns
 										<i class="icon-angle-down"></i>

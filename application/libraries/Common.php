@@ -6,7 +6,8 @@ class Common{
             'kasirstatus'=>'noactive',
             'gudangstatus'=>'noactive',
             'entrygudangstatus'=>'noactive',
-            'importstatus'=>'noactive'
+            'importstatus'=>'noactive',
+            'groupstatus'=>'noactive'
         );
     }
     function checksession(){
