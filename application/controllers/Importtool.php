@@ -132,4 +132,11 @@ Class Importtool extends CI_Controller{
         $data = array_merge($this->common->setdefaultmenustatus(),$data);
         $this->load->view('/importtool/success',$data);
     }
+    function clearproducts(){
+        $this->crud->clear('products');
+    }
+    function importTempProducts(){
+        $this->load->model('product');
+        $this->product->importTemp();
+    }
 }

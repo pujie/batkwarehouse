@@ -47,4 +47,9 @@ Class Crud extends CI_Model{
         $result = $res->result();
         return $result[0];
     }
+    function clear($tableName){
+        $sql = 'delete from '.$tableName.' ';
+        $ci = & get_instance();
+        $res = $ci->db->query($sql);
+    }
 }

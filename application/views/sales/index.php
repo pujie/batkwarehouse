@@ -64,6 +64,8 @@
 								<div class="caption"><i class="icon-globe"></i>Products, total <?php echo $amount;?></div>
 								<div class="actions">
 									<div class="btn-group">
+										<button class="btn red" id="clearProducts">Hapus semua</button>
+										<button class="btn green" id="importTemp">Impor dari table temporary</button>
 										<a class="btn" href="#" data-toggle="dropdown">
 										Columns
 										<i class="icon-angle-down"></i>
@@ -130,6 +132,30 @@
 		jQuery(document).ready(function() {       
 		   App.init();
 		   TableAdvanced.init();
+		   $("#clearProducts").on("click",function(){
+			   $.ajax({
+				   url:'/importtool/clearproducts',
+				   type:'post'
+			   })
+			   .done(function(){
+				   console.log("Success delete products");
+			   })
+			   .fail(function(err){
+				console.log("Failed delete products",err);
+			   });
+		   })
+		   $("#importTemp").on("click",function(){
+			   $.ajax({
+				   url:'/importtool/importtempproducts',
+				   type:'post'
+			   })
+				.done(function(){
+					console.log("Success import Temp");
+				})
+				.fail(function(err){
+					console.log("Failed import Temp",err);
+				});
+		   })
 		});
 	</script>
 </body>

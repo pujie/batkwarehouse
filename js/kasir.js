@@ -37,7 +37,7 @@
         mytotal*=1;
         mytotal = mytotal+temp;
         $("#total").html(numberWithCommas(mytotal));
-        $("#sample_editable_1x").prepend(str);
+        $("#sample_editable_1x").append(str);
     });
     $(".closedialog").on("click",function(){});
      deleteRow = function(par){
