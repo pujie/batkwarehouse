@@ -99,11 +99,13 @@
                         <td><?php echo $obj["nmitem"];?></td>
                         <td><?php echo $obj["hpp"];?></td>
                         <td><?php echo $obj["qty"];?></td>
+                        <td><?php echo $obj["unit"];?></td>
                     </tr>
                     <input type="hidden" name="kditem[]" value="<?php echo $obj['kditem'];?>">
                     <input type="hidden" name="nmitem[]" value="<?php echo $obj['nmitem'];?>">
                     <input type="hidden" name="hpp[]" value="<?php echo $obj['hpp'];?>">
                     <input type="hidden" name="qty[]" value="<?php echo $obj['qty'];?>">
+					<input type="hidden" name="unit[]" value="<?php echo $obj['unit'];?>">
                     <input type="hidden" name="count" value="<?php echo $c;?>">
                     <?php }?>
                 </tbody>

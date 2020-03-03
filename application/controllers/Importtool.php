@@ -55,10 +55,11 @@ Class Importtool extends CI_Controller{
                 $kditem = $filesop[0];
     			$nmitem = $filesop[1];
                 $hpp = $filesop[2];
-    			$qty = $filesop[6];
+                $qty = $filesop[6];
+                $unit = $filesop[7];
                 array_push($objarr,array(
                     "kditem"=>$kditem,"nmitem"=>$nmitem,
-                    "hpp"=>$hpp,"qty"=>$qty,
+                    "hpp"=>$hpp,"qty"=>$qty,"unit"=>$unit
                 )
                 );
                 $c = $c + 1;
@@ -104,13 +105,14 @@ Class Importtool extends CI_Controller{
         $nmitem = $params['nmitem'];
         $hpp = $params['hpp'];
         $qty = $params['qty'];
+        $unit = $params['unit'];
         $category = $params['category'];
         for($c = 1;$c<$params['count'];$c++ ){
-            $sql = "insert into temp (kditem,nmitem, category,hpp, qty) ";
+            $sql = "insert into temp (kditem,nmitem, category,hpp, qty,unit) ";
             $sql.= "values ";
-            $sql.= "('".$kditem[$c]."','".$nmitem[$c]."','".$category."', '".$hpp[$c]."', '".$qty[$c]."')";
+            $sql.= "('".$kditem[$c]."','".$nmitem[$c]."','".$category."', '".$hpp[$c]."', '".$qty[$c]."', '".$unit[$c]."')";
             $data = array(
-                'kditem'=>$kditem[$c],'nmitem'=>$nmitem[$c],'category'=>$category,'hpp'=>$hpp[$c],'qty'=>$qty[$c]
+                'kditem'=>$kditem[$c],'nmitem'=>$nmitem[$c],'category'=>$category,'hpp'=>$hpp[$c],'qty'=>$qty[$c],'unit'=>$unit[$c]
             );
             $obj['tableName'] = 'temp';
             $obj['data'] = $data;
